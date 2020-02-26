@@ -10,9 +10,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
 
-    
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -67,6 +67,15 @@
                     </div>
                 </div>
                 <!-- DataTales Example -->
+                <div class="card shadow mb-4" id="card-info" style="display: none">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Thông tin tài khoản</h6>
+                    </div>
+                    <div class="card-body" id="info">
+
+                    </div>
+                </div>
+
                 <div class="card shadow mb-4" id="table_logs" style="display: none">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Logs</h6>
@@ -151,11 +160,18 @@
                     {
                         toastr["success"](result.msg);
                         $('#table_logs').show();
+                        $('#card-info').show();
                         $('#login').hide();
                         var data_logs = [];
                         result.data.ChiTietGiaoDich.forEach(function (item) {
                             data_logs.push([item.NgayGiaoDich, item.MaThamChieu, item.ThayDoi, item.SoTien, item.MoTa]);
                         });
+                        $('#info').append(
+                            '- <strong>Số dư đầu kỳ: </strong>'+ result.data.ThongTinTaiKhoan.SoDuDauKy,
+                            '<br><strong>- Số dư cuối kỳ:  </strong>'+ result.data.ThongTinTaiKhoan.SoDuCuoiKy,
+                            '<br><strong>- Ngày bắt đầu:  </strong>' + result.data.ThongTinTaiKhoan.NgayBatDau,
+                            '<br><strong>- Ngày kết thúc:  </strong>' + result.data.ThongTinTaiKhoan.NgayKetThuc
+                        );
                         $('#dataTable').DataTable({
                             data: data_logs
                         });
