@@ -10,9 +10,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <meta charset="utf-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -141,7 +141,7 @@
             var data = "username=" + $('#username').val() + '&password=' + $('#password').val();
             http.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    var result = JSON.parse(this.responseText);
+                    var result = JSON.parse(this.response);
                     if (result.status == 'error')
                     {
                         toastr["error"](result.msg);
