@@ -1,2 +1,1 @@
-# curlvcb
-check giao dịch vcb bằng curl
+reportads.com
