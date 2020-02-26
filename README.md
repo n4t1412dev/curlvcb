@@ -2,7 +2,9 @@
 CURL check giao dịch vcb.
 </H1>
 -   Thay đổi url của bạn tại line 99 trong file function.php
+
 -   Sử dụng api giải captcha của @nhockm4v.
+
 -   api: domain/getlogs.php?username=hungdz&password=hungdz
 
 * Demo:
